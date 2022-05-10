@@ -1,0 +1,13 @@
+{% extends 'pastebin_app/base.html' %}
+
+{% block content %}
+    <h1>Create a new paste </h1>
+    <form action="{% url 'pastebin:create' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Create" name="create" class="btn btn-primary">
+    </form>
+    <p>
+        <a href="{% url 'pastebin:create' %}"class = "btn">View all</a>
+    </p>
+{% endblock content %}

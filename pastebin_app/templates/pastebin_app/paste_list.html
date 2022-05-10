@@ -1,0 +1,15 @@
+{% extends 'pastebin_app/base.html' %}
+
+{% block content %}
+    <h1>Available pastes: </h1>
+    <ul>
+        {% for paste in pastes %}
+        <li><a href="{% url 'pastebin:paste_detail' paste.id %}">{{ paste }}</a></li>
+        {% empty %}
+            <p>Pastes yok</p>
+        {% endfor %}
+    </ul>
+    <p>
+        <a href="{% url 'pastebin:create' %}"class = "btn">Create new</a>
+    </p>
+{% endblock content %}

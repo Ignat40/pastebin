@@ -1,0 +1,28 @@
+{% extends 'pastebin_app/base.html' %}
+
+{% block content %}
+    <h1>Paste Info</h1>
+    <div class="paste-group">
+        <label class="paste-label">ID</label>
+        <span class="paste-value">object.id</span>
+    </div>
+    <div class="paste-group">
+        <label class="paste-label">Name</label>
+        <span class="paste-value">object.name</span>
+    </div>
+    <div class="paste-group">
+        <label class="paste-label">Text</label>
+        <span class="paste-value">object.text</span>
+    </div>
+    <div class="paste-group">
+        <label class="paste-label">created</label>
+        <span class="paste-value">object.created_on</span>
+    </div>
+    <div class="paste-group">
+        <label class="paste-label">Modifies</label>
+        <span class="paste-value">object.updated_on</span>
+    </div>
+    <p>
+        <a href="{% url 'pastebin:create' %}"class = "btn">View all</a>
+    </p>
+{% endblock content %}
