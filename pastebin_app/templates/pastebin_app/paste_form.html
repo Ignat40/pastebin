@@ -2,10 +2,12 @@
 
 {% block content %}
     <h1>Create a new paste </h1>
-    <form action="{% url 'pastebin:create' %}" method="POST">
+    {% url 'pastebin:create' as create %}
+    {% url 'pastebin:paste_update' object.id as update %}    
+    <form action="{% if request.path == create %} {{create}} {% else %} {{update}} {% endif %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Create" name="create" class="btn btn-primary">
+        <input type="submit" value="{% if request.path == create %} Create {% else  %} Update {% endif %}" name="create" class="btn btn-primary">
     </form>
     <p>
         <a href="{% url 'pastebin:create' %}"class = "btn">View all</a>
